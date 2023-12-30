@@ -1,5 +1,3 @@
-# importing dependencies
-
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import DBSCAN
@@ -23,4 +21,8 @@ plt.scatter(dataFrame['SepalLengthCm'], dataFrame['SepalWidthCm'], c=dataFrame['
 plt.title("DBSCAN Clustering", fontsize=18)
 plt.xlabel('Sepal Length', fontsize=14)
 plt.ylabel('Sepal Width', fontsize=14)
+
+# Consideration: SepalLengthCm & SepalWidthCm
+# Can also be done for other params
+
 plt.show()
