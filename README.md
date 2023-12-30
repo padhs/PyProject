@@ -3,8 +3,6 @@ Implemented the IRIS data set from kaggle.com ----> https://www.kaggle.com/datas
 
 Included the csv file her in the project directory as well
 
-used this code ---> https://www.kaggle.com/code/endofnight17j03/baggingcassification-essemble/notebook for bagging
-
 used this code ---> https://www.kaggle.com/code/arosekp/iris-dataset-analysis/edit for DBScan clustering
 ![image](https://github.com/padhs/PyProject/assets/68847066/a6273b6e-89da-44d3-a558-7bac34faa660)
 
