@@ -85,3 +85,101 @@ for i, column in enumerate(df.columns[1:-1]):
     plt.title(f'{column} distribution by class')
 plt.show()
 
+# Set the overall figure size i.e. the range in which the datapoints lie
+plt.figure(figsize=(15, 15))
+
+# Subplot 1
+plt.subplot(4, 2, 1)
+fig = df.boxplot(column='SepalLengthCm', color='red')
+fig.set_title('Boxplot of Sepal Length')
+fig.set_ylabel('SepalLengthCm')
+
+# Subplot 2
+plt.subplot(4, 2, 2)
+fig = df.boxplot(column='SepalWidthCm', color='red')
+fig.set_title('Boxplot of Sepal Width')
+fig.set_ylabel('SepalWidthCm')
+
+# Subplot 3
+plt.subplot(4, 2, 3)
+fig = df.boxplot(column='PetalLengthCm', color='red')
+fig.set_title('Boxplot of Petal Length')
+fig.set_ylabel('PetalLengthCm')
+
+# Subplot 4
+plt.subplot(4, 2, 4)
+fig = df.boxplot(column='PetalWidthCm', color='red')
+fig.set_title('Boxplot of Petal Width')
+fig.set_ylabel('PetalWidthCm')
+
+plt.show()
+
+# Making a histogram chart to see how things are spread out
+
+plt.figure(figsize=(24, 20))
+
+# Subplot 1
+plt.subplot(4, 2, 1)
+fig = df['SepalLengthCm'].hist(bins=10, color='green')
+fig.set_xlabel('IP Mean')
+fig.set_title('Sepal Length')
+
+# Subplot 2
+plt.subplot(4, 2, 2)
+fig = df['SepalWidthCm'].hist(bins=10, color='green')
+fig.set_xlabel('Sepal Width')
+fig.set_title('Sepal Width')
+
+# Subplot 3
+plt.subplot(4, 2, 3)
+fig = df['PetalLengthCm'].hist(bins=10, color='green')
+fig.set_xlabel('Petal Length')
+fig.set_title('Petal Length')
+
+# Subplot 4
+plt.subplot(4, 2, 4)
+fig = df['PetalWidthCm'].hist(bins=10, color='green')
+fig.set_xlabel('Petal Width')
+fig.set_title('Petal Width')
+
+plt.show()
+
+# Create a histogram with plotly
+# Opens on a localhost server
+
+fig1 = plotEx.histogram(df, x='Species', color='SepalLengthCm')
+fig1.show()
+
+fig2 = plotEx.histogram(df, x='Species', color='SepalWidthCm')
+fig2.show()
+
+fig3 = plotEx.histogram(df, x='Species', color='PetalLengthCm')
+fig3.show()
+
+fig4 = plotEx.histogram(df, x='Species', color='PetalWidthCm')
+fig4.show()
+
+# Create a scatter plot with 2 variables to distinguish Species
+
+def ScatterPlot(x, y, c=None):
+    global df
+
+    plt.figure(figsize=(15, 6))
+    for Species in df['Species'].unique():
+        plt.scatter(df[x][df['Species'] == Species], df[y][df['Species'] == Species], label=Species, edgecolor='k', alpha=0.7)
+    plt.xticks(rotation=0)
+
+    plt.title("Scatter plot X:{} / Y:{}".format(x, y))
+    plt.xlabel(x)
+    plt.ylabel(y)
+    plt.legend()
+    plt.show()
+
+comb = combinations(['Species', 'PetalLengthCm', 'PetalWidthCm', 'SepalLengthCm', 'SepalWidthCm'], 2)
+combList = [list(i) for i in comb]
+
+for col in combList:
+    ScatterPlot(col[0], col[1])
+
+# Correlation Matrix computation
+
