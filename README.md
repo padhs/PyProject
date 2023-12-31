@@ -14,8 +14,11 @@ Plots showing correlation with each of other parameters (Each measured data is c
 Training Models Used:
 
 Logistic Regression
-KNearest Neighbors (KNN)
+
+KNearest Neighbor (KNN)
+
 Random Forest
+
 Decision Tree
 
 Accuracy plot of each of these showed Logistic Regression and KNN models with the highest accuracy.
