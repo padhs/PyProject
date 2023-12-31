@@ -9,10 +9,10 @@ x = dataFrame[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]
 # irrespective of species
 
 scaler = StandardScaler()
-xSclaed = scaler.fit_transform(x)
+xScaled = scaler.fit_transform(x)
 
 dbscan = DBSCAN(eps=0.5, min_samples=5)
-dataFrame['DBSCAN_Cluster'] = dbscan.fit_predict(xSclaed)
+dataFrame['DBSCAN_Cluster'] = dbscan.fit_predict(xScaled)
 
 plt.figure(figsize=(8, 6))
 plt.scatter(dataFrame['SepalLengthCm'], dataFrame['SepalWidthCm'], c=dataFrame['DBSCAN_Cluster'], cmap='viridis')
